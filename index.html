@@ -370,6 +370,14 @@
 
             max-width: 800px;
 
+            margin-left: 10%;
+
+        }
+
+        @media (min-width: 1600px) {
+            .hero-content {
+                margin-left: 15%;
+            }
         }
 
  
@@ -1593,15 +1601,18 @@
 
             }
 
+            .hero-content {
+                margin-left: 8%;
+            }
+
         }
 
- 
 
         @media (max-width: 992px) {
 
             nav {
 
-                padding: 15px 20px;
+                padding: 15px 30px;
 
             }
 
@@ -1665,19 +1676,20 @@
 
             .hero-content {
 
-                padding: 0 30px;
+                padding: 0 40px;
+                margin-left: 0;
 
             }
 
             .hero-title {
 
-                font-size: 42px;
+                font-size: 48px;
 
             }
 
             .section {
 
-                padding: 80px 30px;
+                padding: 80px 40px;
 
             }
 
@@ -1708,25 +1720,87 @@
             .footer-content {
 
                 grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                padding-left: 20px;
+                padding-right: 20px;
 
             }
 
         }
 
- 
+        /* iPad/Tablet Portrait */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            .hero-title {
+                font-size: 40px;
+            }
+            .hero-content {
+                padding: 0 30px;
+            }
+            .section {
+                padding: 60px 25px;
+            }
+            .section-title {
+                font-size: 34px;
+            }
+            .about-grid {
+                gap: 40px;
+            }
+            .why-content h2 {
+                font-size: 36px;
+            }
+            .fishing-content h2 {
+                font-size: 32px;
+            }
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+            .pillar {
+                padding: 40px 30px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .services-table-row {
+                grid-template-columns: 45px 1fr;
+                gap: 12px;
+                padding: 15px 20px;
+            }
+            .map-container .google-map {
+                height: 350px;
+            }
+            .fishing-highlights {
+                gap: 20px;
+            }
+        }
 
         @media (max-width: 576px) {
 
+            nav {
+                padding: 12px 15px;
+            }
+
             .hero-title {
 
-                font-size: 32px;
+                font-size: 28px;
 
+            }
+
+            .hero-content {
+                padding: 0 20px;
             }
 
             .section-title {
 
-                font-size: 32px;
+                font-size: 26px;
 
+            }
+
+            .section {
+                padding: 50px 20px;
             }
 
             .hero-cta {
@@ -1757,12 +1831,6 @@
 
             }
 
-            .pillars {
-
-                grid-template-columns: 1fr;
-
-            }
-
             .footer-content {
 
                 grid-template-columns: 1fr;
@@ -1777,6 +1845,18 @@
 
                 text-align: center;
 
+            }
+
+            .why-content h2 {
+                font-size: 28px;
+            }
+
+            .fishing-content h2 {
+                font-size: 26px;
+            }
+
+            .map-container .google-map {
+                height: 280px;
             }
 
         }
