@@ -905,6 +905,24 @@
 
  
 
+        /* Ocean Wave Footer Image */
+        .wave-section {
+            height: 405px;
+            background-image: url('assets/ocean-wave.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .wave-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, var(--secondary-dark) 0%, transparent 30%, transparent 70%, var(--primary-dark) 100%);
+        }
+
         /* CTA Section */
 
         .cta-section {
@@ -1735,7 +1753,10 @@
 
     </section>
 
- 
+    <!-- Ocean Wave Image -->
+    <section class="wave-section">
+        <div class="wave-overlay"></div>
+    </section>
 
     <!-- Footer -->
 
