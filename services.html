@@ -1631,7 +1631,7 @@
             padding: 100px 50px;
         }
         .calculator-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         .calculator-header {
@@ -1641,16 +1641,59 @@
         .calculator-box {
             background: var(--primary-dark);
             border-radius: 16px;
-            padding: 50px;
+            padding: 40px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
+
+        /* Input Mode Toggle - Redesigned as obvious buttons */
+        .input-mode-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+        .input-mode-buttons {
+            display: flex;
+            background: var(--secondary-dark);
+            border-radius: 12px;
+            padding: 6px;
+            gap: 6px;
+        }
+        .input-mode-btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .input-mode-btn i {
+            font-size: 16px;
+        }
+        .input-mode-btn:hover {
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .input-mode-btn.active {
+            background: var(--highlight);
+            color: white;
+            box-shadow: 0 4px 15px rgba(61, 139, 201, 0.4);
+        }
+
         .calculator-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 40px;
+            align-items: start;
         }
         .calc-input-group {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .calc-input-group label {
             display: block;
@@ -1658,7 +1701,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--text-muted);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .calc-slider-container {
             position: relative;
@@ -1736,35 +1779,98 @@
             background: var(--primary-dark);
             color: var(--text-light);
         }
+        .calc-selects-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
         .calc-results {
             background: linear-gradient(135deg, var(--accent-blue) 0%, var(--highlight) 100%);
             border-radius: 12px;
-            padding: 40px;
+            padding: 30px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
         }
         .result-label {
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 2px;
             opacity: 0.9;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .result-price {
-            font-size: 56px;
+            font-size: 48px;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             line-height: 1;
         }
         .result-breakdown {
-            font-size: 14px;
-            opacity: 0.8;
+            font-size: 13px;
+            opacity: 0.85;
             margin-bottom: 20px;
         }
         .result-note {
             font-size: 12px;
-            opacity: 0.7;
+            opacity: 0.75;
             padding-top: 15px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+        .result-extras {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .result-extras-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.7;
+            margin-bottom: 12px;
+        }
+        .result-rate-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            text-align: left;
+        }
+        .rate-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 15px;
+            border-radius: 8px;
+        }
+        .rate-item-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+        .rate-item-value {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .result-cta {
+            margin-top: 20px;
+        }
+        .result-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .result-cta-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
         }
         .duration-badges {
             display: flex;
@@ -1792,22 +1898,14 @@
         }
         .calc-disclaimer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 25px;
             font-size: 12px;
             color: var(--text-muted);
             opacity: 0.7;
         }
-        /* Input Mode Toggle */
-        .input-mode-toggle {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .toggle-dots {
-            display: flex;
-            gap: 8px;
+        /* Legacy toggle styles (hidden but kept for JS compatibility) */
+        .toggle-dots, .toggle-label {
+            display: none;
         }
         .toggle-dot {
             width: 12px;
@@ -2014,6 +2112,19 @@
             }
             .result-price {
                 font-size: 42px;
+            }
+            .input-mode-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .input-mode-btn {
+                justify-content: center;
+            }
+            .calc-selects-row {
+                grid-template-columns: 1fr;
+            }
+            .result-rate-breakdown {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -3350,14 +3461,16 @@
             </div>
 
             <div class="calculator-box">
-                <!-- Input Mode Toggle -->
+                <!-- Input Mode Toggle - New Button Style -->
                 <div class="input-mode-toggle">
-                    <span class="toggle-label active" id="sliderLabel">Sliders</span>
-                    <div class="toggle-dots">
-                        <div class="toggle-dot active" id="dotSlider" onclick="setInputMode('slider')"></div>
-                        <div class="toggle-dot" id="dotManual" onclick="setInputMode('manual')"></div>
+                    <div class="input-mode-buttons">
+                        <button class="input-mode-btn active" id="sliderModeBtn" onclick="setInputMode('slider')">
+                            <i class="fas fa-sliders-h"></i> Use Sliders
+                        </button>
+                        <button class="input-mode-btn" id="manualModeBtn" onclick="setInputMode('manual')">
+                            <i class="fas fa-keyboard"></i> Type Values
+                        </button>
                     </div>
-                    <span class="toggle-label" id="manualLabel">Manual Input</span>
                 </div>
 
                 <div class="calculator-grid">
@@ -3425,23 +3538,25 @@
                             </div>
                         </div>
 
-                        <div class="calc-input-group">
-                            <label>Service Type</label>
-                            <select class="calc-select" id="serviceType">
-                                <option value="wetslip">Wet Slip Rental</option>
-                                <option value="dryrack">Dry Rack Storage</option>
-                                <option value="hurricane">Hurricane Storage (Land)</option>
-                            </select>
-                        </div>
+                        <div class="calc-selects-row">
+                            <div class="calc-input-group">
+                                <label>Service Type</label>
+                                <select class="calc-select" id="serviceType">
+                                    <option value="wetslip">Wet Slip Rental</option>
+                                    <option value="dryrack">Dry Rack Storage</option>
+                                    <option value="hurricane">Hurricane Storage (Land)</option>
+                                </select>
+                            </div>
 
-                        <div class="calc-input-group">
-                            <label>Boat Type</label>
-                            <select class="calc-select" id="boatType">
-                                <option value="sailboat">Sailboat</option>
-                                <option value="powerboat">Powerboat</option>
-                                <option value="catamaran">Catamaran</option>
-                                <option value="trawler">Trawler</option>
-                            </select>
+                            <div class="calc-input-group">
+                                <label>Boat Type</label>
+                                <select class="calc-select" id="boatType">
+                                    <option value="sailboat">Sailboat</option>
+                                    <option value="powerboat">Powerboat</option>
+                                    <option value="catamaran">Catamaran</option>
+                                    <option value="trawler">Trawler</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
@@ -3452,8 +3567,36 @@
                             35 ft × $1.00/ft/day × 30 days
                         </div>
                         <div class="result-note">
-                            <strong>Rate Applied:</strong> <span id="rateApplied">Monthly Rate</span><br>
+                            <strong>Rate Applied:</strong> <span id="rateApplied">Monthly Rate (30+ days)</span><br>
                             Prices are estimates. Contact us for exact quotes.
+                        </div>
+
+                        <div class="result-extras">
+                            <div class="result-extras-title">Rate Information</div>
+                            <div class="result-rate-breakdown">
+                                <div class="rate-item">
+                                    <div class="rate-item-label">Daily Rate</div>
+                                    <div class="rate-item-value" id="dailyRateDisplay">$1.50/ft</div>
+                                </div>
+                                <div class="rate-item">
+                                    <div class="rate-item-label">Weekly Rate</div>
+                                    <div class="rate-item-value" id="weeklyRateDisplay">$1.25/ft</div>
+                                </div>
+                                <div class="rate-item">
+                                    <div class="rate-item-label">Monthly Rate</div>
+                                    <div class="rate-item-value" id="monthlyRateDisplay">$1.00/ft</div>
+                                </div>
+                                <div class="rate-item">
+                                    <div class="rate-item-label">Beam Factor</div>
+                                    <div class="rate-item-value" id="beamFactorDisplay">1.13x</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-cta">
+                            <a href="contact.html" class="result-cta-btn">
+                                <i class="fas fa-envelope"></i> Get Exact Quote
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -3632,18 +3775,14 @@
             currentInputMode = mode;
             const sliderInputs = document.getElementById('sliderInputs');
             const manualInputs = document.getElementById('manualInputs');
-            const dotSlider = document.getElementById('dotSlider');
-            const dotManual = document.getElementById('dotManual');
-            const sliderLabel = document.getElementById('sliderLabel');
-            const manualLabel = document.getElementById('manualLabel');
+            const sliderModeBtn = document.getElementById('sliderModeBtn');
+            const manualModeBtn = document.getElementById('manualModeBtn');
 
             if (mode === 'slider') {
                 sliderInputs.classList.remove('hidden');
                 manualInputs.classList.remove('active');
-                dotSlider.classList.add('active');
-                dotManual.classList.remove('active');
-                sliderLabel.classList.add('active');
-                manualLabel.classList.remove('active');
+                sliderModeBtn.classList.add('active');
+                manualModeBtn.classList.remove('active');
                 // Sync manual values to sliders
                 document.getElementById('boatLength').value = document.getElementById('manualLength').value;
                 document.getElementById('boatBeam').value = document.getElementById('manualBeam').value;
@@ -3651,10 +3790,8 @@
             } else {
                 sliderInputs.classList.add('hidden');
                 manualInputs.classList.add('active');
-                dotSlider.classList.remove('active');
-                dotManual.classList.add('active');
-                sliderLabel.classList.remove('active');
-                manualLabel.classList.add('active');
+                sliderModeBtn.classList.remove('active');
+                manualModeBtn.classList.add('active');
                 // Sync slider values to manual inputs
                 document.getElementById('manualLength').value = document.getElementById('boatLength').value;
                 document.getElementById('manualBeam').value = document.getElementById('boatBeam').value;
