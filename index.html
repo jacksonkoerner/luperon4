@@ -630,6 +630,65 @@
             display: block;
         }
 
+        /* About Image Carousel */
+        .about-carousel {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .carousel-images {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+        }
+
+        .carousel-images img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .carousel-images img.active {
+            opacity: 1;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .carousel-dot.active {
+            background: var(--highlight);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+
         @media (max-width: 992px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -2049,8 +2108,17 @@
 
             </div>
 
-            <div class="about-image">
-                <img src="assets/about-marina-aerial.webp" alt="Tropical Marina aerial view">
+            <div class="about-carousel" id="aboutCarousel">
+                <div class="carousel-images">
+                    <img src="assets/about-marina-aerial.webp" alt="Tropical Marina aerial view" class="active">
+                    <img src="assets/about-marina-view.webp" alt="Tropical Marina marina view">
+                    <img src="assets/boatyard-aerial.webp" alt="Tropical Marina boatyard">
+                </div>
+                <div class="carousel-dots">
+                    <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(2)"></div>
+                </div>
             </div>
 
         </div>
@@ -2410,6 +2478,41 @@
             navLinks.classList.toggle('active');
 
         }
+
+        // About Section Carousel
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let carouselInterval;
+
+        function goToSlide(index) {
+            const images = document.querySelectorAll('#aboutCarousel .carousel-images img');
+            const dots = document.querySelectorAll('#aboutCarousel .carousel-dot');
+
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            currentSlide = index;
+            images[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+
+            // Reset auto-rotate timer when manually changing slides
+            resetCarouselInterval();
+        }
+
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % totalSlides;
+            goToSlide(nextIndex);
+        }
+
+        function resetCarouselInterval() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(nextSlide, 4000);
+        }
+
+        // Start carousel auto-rotation
+        document.addEventListener('DOMContentLoaded', function() {
+            carouselInterval = setInterval(nextSlide, 4000);
+        });
 
         // Scroll Animation Observer
         const animateOnScroll = () => {

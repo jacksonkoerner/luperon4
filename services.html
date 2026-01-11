@@ -470,7 +470,238 @@
 
         }
 
- 
+        /* Fuel Display Section */
+        .fuel-display-section {
+            background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+            padding: 80px 50px;
+        }
+
+        .fuel-display-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fuel-display-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .fuel-display-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .fuel-display-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .fuel-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .fuel-card {
+            background: var(--primary-dark);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .fuel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+        }
+
+        .fuel-card.diesel::before {
+            background: linear-gradient(90deg, #f39c12, #e67e22);
+        }
+
+        .fuel-card.gasoline::before {
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+        }
+
+        .fuel-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .fuel-card.diesel:hover {
+            border-color: rgba(243, 156, 18, 0.4);
+        }
+
+        .fuel-card.gasoline:hover {
+            border-color: rgba(231, 76, 60, 0.4);
+        }
+
+        .fuel-card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+
+        .fuel-card.diesel .fuel-card-icon {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.2), rgba(230, 126, 34, 0.1));
+            color: #f39c12;
+        }
+
+        .fuel-card.gasoline .fuel-card-icon {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.2), rgba(192, 57, 43, 0.1));
+            color: #e74c3c;
+        }
+
+        .fuel-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .fuel-card .fuel-type {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .fuel-price-display {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .fuel-currency {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .fuel-price {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .fuel-card.diesel .fuel-price {
+            color: #f39c12;
+        }
+
+        .fuel-card.gasoline .fuel-price {
+            color: #e74c3c;
+        }
+
+        .fuel-unit {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .fuel-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fuel-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .fuel-feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .fuel-feature i {
+            font-size: 10px;
+        }
+
+        .fuel-card.diesel .fuel-feature i {
+            color: #f39c12;
+        }
+
+        .fuel-card.gasoline .fuel-feature i {
+            color: #e74c3c;
+        }
+
+        .fuel-footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fuel-footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .fuel-footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .fuel-footer-contact a {
+            color: var(--highlight);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .fuel-footer-contact a:hover {
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .fuel-cards {
+                grid-template-columns: 1fr;
+            }
+            .fuel-price {
+                font-size: 42px;
+            }
+            .fuel-display-section {
+                padding: 60px 20px;
+            }
+        }
 
         /* Service Categories Grid */
 
@@ -1004,7 +1235,23 @@
 
         }
 
- 
+        /* Ocean Wave Footer Image */
+        .wave-section {
+            height: 405px;
+            background-image: url('assets/ocean-wave.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .wave-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, var(--secondary-dark) 0%, transparent 30%, transparent 70%, var(--primary-dark) 100%);
+        }
 
         /* Footer */
 
@@ -1771,13 +2018,36 @@
         }
 
         /* ===== TAB NAVIGATION STYLES ===== */
+        .tab-intro {
+            background: var(--primary-dark);
+            padding: 30px 50px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-intro-text {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tab-intro-text i {
+            color: var(--highlight);
+            font-size: 16px;
+        }
+
         .services-tabs {
-            background: var(--secondary-dark);
-            padding: 0 50px;
+            background: linear-gradient(180deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+            padding: 20px 50px;
             position: sticky;
             top: 70px;
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid rgba(61, 139, 201, 0.3);
         }
 
         .tabs-container {
@@ -1785,13 +2055,14 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 0;
+            gap: 15px;
         }
 
         .tab-button {
-            padding: 20px 40px;
-            background: transparent;
-            border: none;
+            padding: 18px 32px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
             color: var(--text-muted);
             font-family: inherit;
             font-size: 13px;
@@ -1803,39 +2074,60 @@
             position: relative;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .tab-button:hover {
             color: var(--text-light);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(61, 139, 201, 0.15);
+            border-color: rgba(61, 139, 201, 0.4);
+            transform: translateY(-2px);
         }
 
         .tab-button.active {
             color: var(--text-light);
+            background: rgba(61, 139, 201, 0.2);
+            border-color: var(--highlight);
+            box-shadow: 0 4px 20px rgba(61, 139, 201, 0.3);
         }
 
-        .tab-button::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: transparent;
-            transition: background 0.3s ease;
-        }
-
-        .tab-button.active::after {
-            background: var(--highlight);
-        }
-
-        .tab-button.hurricane-tab.active::after {
-            background: var(--warning-orange);
+        .tab-button.hurricane-tab.active {
+            background: rgba(230, 126, 34, 0.2);
+            border-color: var(--warning-orange);
+            box-shadow: 0 4px 20px rgba(230, 126, 34, 0.3);
         }
 
         .tab-button i {
-            font-size: 16px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .tab-button:hover i {
+            transform: scale(1.1);
+        }
+
+        .tab-button-label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .tab-button-title {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .tab-button-subtitle {
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--text-muted);
+            text-transform: none;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-button.active .tab-button-subtitle {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .tab-content {
@@ -1847,19 +2139,28 @@
         }
 
         @media (max-width: 992px) {
+            .tab-intro {
+                padding: 20px;
+            }
             .services-tabs {
-                padding: 0 20px;
+                padding: 15px 20px;
                 top: 60px;
             }
             .tabs-container {
                 overflow-x: auto;
                 justify-content: flex-start;
+                gap: 10px;
                 -webkit-overflow-scrolling: touch;
+                padding-bottom: 5px;
             }
             .tab-button {
-                padding: 15px 20px;
+                padding: 12px 18px;
                 font-size: 11px;
                 white-space: nowrap;
+                flex-shrink: 0;
+            }
+            .tab-button-subtitle {
+                display: none;
             }
         }
 
@@ -2450,20 +2751,44 @@
 
     </header>
 
+    <!-- Tab Introduction -->
+    <div class="tab-intro">
+        <p class="tab-intro-text">
+            <i class="fas fa-hand-pointer"></i>
+            Click the buttons below to explore our different services
+        </p>
+    </div>
+
     <!-- Tab Navigation -->
     <div class="services-tabs">
         <div class="tabs-container">
             <button class="tab-button hurricane-tab active" onclick="switchTab('hurricane')">
-                <i class="fas fa-shield-alt"></i> Hurricane Storage
+                <i class="fas fa-shield-alt"></i>
+                <span class="tab-button-label">
+                    <span class="tab-button-title">Hurricane Storage</span>
+                    <span class="tab-button-subtitle">Secure land storage & monitoring</span>
+                </span>
             </button>
             <button class="tab-button" onclick="switchTab('facilities')">
-                <i class="fas fa-anchor"></i> Marina Facilities
+                <i class="fas fa-anchor"></i>
+                <span class="tab-button-label">
+                    <span class="tab-button-title">Marina Facilities</span>
+                    <span class="tab-button-subtitle">Berthing, docks & amenities</span>
+                </span>
             </button>
             <button class="tab-button" onclick="switchTab('fuel')">
-                <i class="fas fa-gas-pump"></i> Fuel & Services
+                <i class="fas fa-gas-pump"></i>
+                <span class="tab-button-label">
+                    <span class="tab-button-title">Fuel & Services</span>
+                    <span class="tab-button-subtitle">Diesel, gasoline & more</span>
+                </span>
             </button>
             <button class="tab-button" onclick="switchTab('calculator')">
-                <i class="fas fa-calculator"></i> Price Calculator
+                <i class="fas fa-calculator"></i>
+                <span class="tab-button-label">
+                    <span class="tab-button-title">Price Calculator</span>
+                    <span class="tab-button-subtitle">Estimate your costs</span>
+                </span>
             </button>
         </div>
     </div>
@@ -2766,6 +3091,72 @@
         <section class="facilities-header" style="background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);">
             <h2><i class="fas fa-gas-pump"></i> Fuel & Services</h2>
             <p>Full refueling station with diesel and gasoline, plus complete marina and boatyard services to keep you cruising.</p>
+        </section>
+
+        <!-- Fuel Price Display -->
+        <section class="fuel-display-section">
+            <div class="fuel-display-container">
+                <div class="fuel-display-header">
+                    <p class="section-label">Refueling Station</p>
+                    <h2>Current Fuel Prices</h2>
+                    <div class="section-divider" style="margin: 20px auto 0;"></div>
+                    <p style="margin-top: 20px;">Dock-side fuel delivery available for all vessels</p>
+                </div>
+
+                <div class="fuel-cards">
+                    <!-- Diesel Card -->
+                    <div class="fuel-card diesel">
+                        <div class="fuel-card-icon">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <h3>Diesel</h3>
+                        <p class="fuel-type">Marine Grade Fuel</p>
+                        <div class="fuel-price-display">
+                            <span class="fuel-currency">$</span>
+                            <span class="fuel-price">4.50</span>
+                            <span class="fuel-unit">/ gallon</span>
+                        </div>
+                        <div class="fuel-features">
+                            <span class="fuel-feature"><i class="fas fa-check"></i> High Quality</span>
+                            <span class="fuel-feature"><i class="fas fa-check"></i> Filtered</span>
+                            <span class="fuel-feature"><i class="fas fa-check"></i> Dock Delivery</span>
+                        </div>
+                        <p class="fuel-note">
+                            <i class="fas fa-info-circle"></i> Prices may vary. Contact us for current rates and bulk discounts.
+                        </p>
+                    </div>
+
+                    <!-- Gasoline Card -->
+                    <div class="fuel-card gasoline">
+                        <div class="fuel-card-icon">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <h3>Gasoline</h3>
+                        <p class="fuel-type">Premium Unleaded</p>
+                        <div class="fuel-price-display">
+                            <span class="fuel-currency">$</span>
+                            <span class="fuel-price">5.25</span>
+                            <span class="fuel-unit">/ gallon</span>
+                        </div>
+                        <div class="fuel-features">
+                            <span class="fuel-feature"><i class="fas fa-check"></i> Premium Grade</span>
+                            <span class="fuel-feature"><i class="fas fa-check"></i> Fresh Supply</span>
+                            <span class="fuel-feature"><i class="fas fa-check"></i> Dock Delivery</span>
+                        </div>
+                        <p class="fuel-note">
+                            <i class="fas fa-info-circle"></i> Prices may vary. Contact us for current rates and bulk discounts.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fuel-footer">
+                    <p><i class="fas fa-phone-alt"></i> Call ahead to arrange fuel delivery to your slip</p>
+                    <div class="fuel-footer-contact">
+                        <a href="tel:+18099947231"><i class="fas fa-phone"></i> +1 809 994-7231</a>
+                        <a href="https://wa.me/18295892126"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Service Categories Overview -->
@@ -3091,7 +3482,10 @@
 
     </section>
 
-
+    <!-- Ocean Wave Image -->
+    <section class="wave-section">
+        <div class="wave-overlay"></div>
+    </section>
 
     <!-- Footer -->
 
