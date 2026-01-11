@@ -1235,7 +1235,64 @@
 
         }
 
-        /* Ocean Wave Footer Image */
+        /* Ocean Wave Footer Image with CTA Overlay */
+        .wave-cta-section {
+            min-height: 450px;
+            background-image: url('assets/ocean-wave.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wave-cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, var(--secondary-dark) 0%, rgba(10, 22, 40, 0.85) 40%, rgba(10, 22, 40, 0.85) 60%, var(--primary-dark) 100%);
+        }
+
+        .wave-cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 60px 50px;
+            max-width: 800px;
+        }
+
+        .wave-cta-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .wave-cta-content p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .wave-cta-section {
+                min-height: 400px;
+            }
+            .wave-cta-content {
+                padding: 40px 20px;
+            }
+            .wave-cta-content h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* Legacy wave-section for backwards compatibility */
         .wave-section {
             height: 405px;
             background-image: url('assets/ocean-wave.webp');
@@ -3056,14 +3113,6 @@
             </div>
         </section>
 
-        <!-- Hurricane CTA -->
-        <section class="cta-section" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);">
-            <h2>Reserve Your Hurricane Storage Spot</h2>
-            <p>Space is limited for hurricane season. Contact us now to secure your vessel's spot in one of the Caribbean's safest harbors.</p>
-            <a href="contact.html" class="btn btn-primary" style="background: var(--primary-dark);">Request Hurricane Storage</a>
-            <a href="#" class="btn btn-outline" onclick="switchTab('calculator'); return false;">Calculate Pricing</a>
-        </section>
-
     </div>
 
     <!-- MARINA FACILITIES TAB -->
@@ -3611,23 +3660,15 @@
 
     </div> <!-- End Calculator Tab -->
 
-    <!-- CTA Section -->
-
-    <section class="cta-section">
-
-        <h2>Ready to Get Started?</h2>
-
-        <p>Contact us to discuss your service needs or request a haul-out appointment.</p>
-
-        <a href="contact.html" class="btn btn-primary">Request Service</a>
-
-        <a href="gallery.html#work-completed" class="btn btn-outline">View Our Work</a>
-
-    </section>
-
-    <!-- Ocean Wave Image -->
-    <section class="wave-section">
-        <div class="wave-overlay"></div>
+    <!-- Wave Image with CTA Overlay -->
+    <section class="wave-cta-section">
+        <div class="wave-cta-overlay"></div>
+        <div class="wave-cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p>Contact us to discuss your service needs or request a haul-out appointment.</p>
+            <a href="contact.html" class="btn btn-primary">Request Service</a>
+            <a href="gallery.html#work-completed" class="btn btn-outline">View Our Work</a>
+        </div>
     </section>
 
     <!-- Footer -->
