@@ -1051,6 +1051,35 @@
 
  
 
+        /* Image Break Content */
+        .image-break-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            max-width: 700px;
+            padding: 0 20px;
+        }
+
+        .image-break-content .section-label {
+            color: var(--accent-gold);
+        }
+
+        .image-break-content .section-title {
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .image-break-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
         /* Additional Services */
 
         .additional-services {
@@ -4427,9 +4456,18 @@
             </div>
         </section>
 
-        <!-- Image Break -->
+        <!-- Image Break with Gallery CTA -->
         <section class="image-break">
             <div class="image-break-overlay"></div>
+            <div class="image-break-content">
+                <p class="section-label">See Our Work</p>
+                <h2 class="section-title">WORK COMPLETED</h2>
+                <div class="section-divider" style="margin: 0 auto 30px;"></div>
+                <p>
+                    View examples of our completed projects in our gallery. From bottom jobs and hull repairs to complete refits, see the quality of work we deliver.
+                </p>
+                <a href="gallery.html#work-completed" class="btn btn-primary">View Gallery</a>
+            </div>
         </section>
 
         <!-- Additional Services - Boat Types -->
@@ -4467,22 +4505,6 @@
                     <h4>Work Boats</h4>
                     <p>Commercial vessels</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Work Gallery CTA -->
-        <section class="section" style="background: var(--secondary-dark);">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <p class="section-label">See Our Work</p>
-                <h2 class="section-title">WORK COMPLETED</h2>
-                <div class="section-divider" style="margin: 0 auto 30px;"></div>
-                <p style="color: var(--text-muted); font-size: 15px; line-height: 1.8; margin-bottom: 30px;">
-                    View examples of our completed projects in our gallery. From bottom jobs and hull repairs to complete refits, see the quality of work we deliver.
-                </p>
-            </div>
-
-            <div style="text-align: center;">
-                <a href="gallery.html#work-completed" class="btn btn-primary">View Gallery</a>
             </div>
         </section>
 
