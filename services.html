@@ -5289,9 +5289,11 @@
 
         function scrollToServices() {
             // Scroll to the top where the service buttons are
+            // Account for fixed header height (approx 80px) plus some padding
             const nav = document.getElementById('services-nav');
             if (nav) {
-                const navTop = nav.offsetTop;
+                const headerOffset = 100;
+                const navTop = nav.offsetTop - headerOffset;
                 window.scrollTo({ top: navTop, behavior: 'smooth' });
             }
         }
