@@ -3403,18 +3403,25 @@
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(0, 188, 212, 0.2);
+            padding-bottom: 54.55%; /* 11:6 aspect ratio for 2816x1536 images */
         }
 
         .slide-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 350px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
 
         .slide-image-placeholder {
-            width: 100%;
-            height: 350px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: linear-gradient(135deg, #1a2a3a 0%, #0a1628 100%);
             display: flex;
             align-items: center;
@@ -3473,9 +3480,15 @@
         }
 
         /* Live Stream Hero Section */
+        .security-hero-wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
         .security-hero {
             position: relative;
-            min-height: 500px;
+            min-height: 400px;
+            aspect-ratio: 11 / 6;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -3486,11 +3499,15 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('assets/security-livestream-preview.webp');
-            background-size: cover;
-            background-position: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .security-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .security-hero-overlay {
@@ -3703,10 +3720,6 @@
             .slideshow-tab-btn {
                 padding: 10px 18px;
                 font-size: 12px;
-            }
-            .slide-image-container img,
-            .slide-image-placeholder {
-                height: 250px;
             }
             .slide-content h3 {
                 font-size: 22px;
@@ -4741,23 +4754,27 @@
         </section>
 
         <!-- Section 3: Live Stream Teaser -->
-        <section class="security-hero" id="security-cameras">
-            <div class="security-hero-bg"></div>
-            <div class="security-hero-overlay"></div>
-            <div class="security-hero-content">
-                <div class="live-badge">
-                    <div class="live-dot"></div>
-                    <span>LIVE</span>
+        <div class="security-hero-wrapper">
+            <section class="security-hero" id="security-cameras">
+                <div class="security-hero-bg">
+                    <img src="assets/security-livestream-preview.webp" alt="Security camera live stream preview">
                 </div>
-                <h2>Live Stream Access</h2>
-                <p class="coming-soon-text">Coming Soon</p>
-                <p>Boat owners will soon be able to view live camera feeds of their vessels from anywhere in the world through our secure monitoring portal.</p>
-                <div class="hero-buttons">
-                    <a href="contact.html" class="hero-btn hero-btn-primary">Get Notified</a>
-                    <a href="#security-cameras" onclick="document.querySelector('.security-header').scrollIntoView({behavior: 'smooth'}); return false;" class="hero-btn hero-btn-outline">Learn More</a>
+                <div class="security-hero-overlay"></div>
+                <div class="security-hero-content">
+                    <div class="live-badge">
+                        <div class="live-dot"></div>
+                        <span>LIVE</span>
+                    </div>
+                    <h2>Live Stream Access</h2>
+                    <p class="coming-soon-text">Coming Soon</p>
+                    <p>Boat owners will soon be able to view live camera feeds of their vessels from anywhere in the world through our secure monitoring portal.</p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="hero-btn hero-btn-primary">Get Notified</a>
+                        <a href="#security-cameras" onclick="document.querySelector('.security-header').scrollIntoView({behavior: 'smooth'}); return false;" class="hero-btn hero-btn-outline">Learn More</a>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
         <!-- What to Expect Grid -->
         <section class="security-features-section">
