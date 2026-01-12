@@ -3153,62 +3153,6 @@
             }
         }
 
-        /* Work Completed Gallery */
-        .work-completed-gallery {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            max-width: 1200px;
-            margin: 0 auto 30px;
-        }
-        .work-completed-gallery a {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        .work-completed-gallery a:hover {
-            transform: scale(1.03);
-        }
-        .work-completed-gallery .caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 15px;
-            background: linear-gradient(0deg, rgba(10, 22, 40, 0.9) 0%, transparent 100%);
-        }
-        .work-completed-gallery h4 {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-        }
-        .work-completed-gallery p {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-        @media (max-width: 992px) {
-            .work-completed-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 576px) {
-            .work-completed-gallery {
-                grid-template-columns: 1fr;
-            }
-            .work-completed-gallery a {
-                height: 180px;
-            }
-        }
-
         /* ===== SECURITY TAB STYLES ===== */
         .tab-button.security-tab.active {
             background: rgba(0, 188, 212, 0.2);
@@ -4475,49 +4419,8 @@
                 </p>
             </div>
 
-            <!-- YouTube Video -->
-            <div style="max-width: 900px; margin: 0 auto 40px;">
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
-                    <iframe
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-                        src="https://www.youtube.com/embed/_JmQdq37S6Y"
-                        title="Catamaran Restoration: Barnacle Removal & Fresh Bottom Paint"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <!-- Work Completed Gallery -->
-            <div class="work-completed-gallery">
-                <a href="gallery.html#work-completed" style="background-image: url('assets/gallery-yard-1.webp');">
-                    <div class="caption">
-                        <h4>Haul-Out & Bottom Work</h4>
-                        <p>Complete bottom job with antifouling</p>
-                    </div>
-                </a>
-                <a href="gallery.html#work-completed" style="background-image: url('assets/gallery-yard-2.webp');">
-                    <div class="caption">
-                        <h4>Professional Bottom Painting</h4>
-                        <p>Quality antifouling application</p>
-                    </div>
-                </a>
-                <a href="gallery.html#work-completed" style="background-image: url('assets/gallery-yard-3.webp');">
-                    <div class="caption">
-                        <h4>Vessel Storage</h4>
-                        <p>Secure hardstand storage</p>
-                    </div>
-                </a>
-                <a href="gallery.html#work-completed" style="background-image: url('assets/gallery-yard-4.webp');">
-                    <div class="caption">
-                        <h4>Yard Work</h4>
-                        <p>Full service boatyard operations</p>
-                    </div>
-                </a>
-            </div>
-
             <div style="text-align: center;">
-                <a href="gallery.html#work-completed" class="btn btn-primary">View Full Gallery</a>
+                <a href="gallery.html#work-completed" class="btn btn-primary">View Gallery</a>
             </div>
         </section>
 
