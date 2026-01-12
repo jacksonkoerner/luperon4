@@ -5297,10 +5297,13 @@
         }
 
         // Show/hide button based on scroll position
+        // Get the initial position of the services nav (before it becomes sticky)
+        const servicesNavTop = servicesNav.offsetTop;
+
         window.addEventListener('scroll', () => {
-            const servicesNavRect = servicesNav.getBoundingClientRect();
-            // Show button when services nav is scrolled out of view (above the viewport)
-            if (servicesNavRect.bottom < 0) {
+            // Show button when user has scrolled significantly past the services nav
+            // (at least 500px past where it starts)
+            if (window.scrollY > servicesNavTop + 500) {
                 backToTopBtn.classList.add('visible');
             } else {
                 backToTopBtn.classList.remove('visible');
