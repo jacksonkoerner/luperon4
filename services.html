@@ -2447,8 +2447,6 @@
         .services-tabs {
             background: linear-gradient(180deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
             padding: 35px 50px 30px;
-            position: sticky;
-            top: 70px;
             z-index: 100;
             border-bottom: 2px solid rgba(61, 139, 201, 0.3);
         }
@@ -2547,7 +2545,6 @@
             }
             .services-tabs {
                 padding: 15px 20px;
-                top: 60px;
             }
             .tabs-container {
                 overflow-x: auto;
@@ -2575,7 +2572,6 @@
             }
             .services-tabs {
                 padding: 15px;
-                top: 55px;
             }
             .tabs-container {
                 flex-direction: column;
@@ -2617,7 +2613,6 @@
         @media (max-width: 576px) {
             .services-tabs {
                 padding: 12px;
-                top: 50px;
             }
             .tabs-container {
                 gap: 6px;
@@ -5293,17 +5288,15 @@
         const servicesNav = document.getElementById('services-nav');
 
         function scrollToServices() {
+            // Scroll to the top where the service buttons are
             servicesNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Show/hide button based on scroll position
-        // Get the initial position of the services nav (before it becomes sticky)
-        const servicesNavTop = servicesNav.offsetTop;
-
+        // Show/hide button based on whether tabs are visible
         window.addEventListener('scroll', () => {
-            // Show button when user has scrolled significantly past the services nav
-            // (at least 500px past where it starts)
-            if (window.scrollY > servicesNavTop + 500) {
+            const rect = servicesNav.getBoundingClientRect();
+            // Show button when the tabs have scrolled above the viewport
+            if (rect.bottom < 0) {
                 backToTopBtn.classList.add('visible');
             } else {
                 backToTopBtn.classList.remove('visible');
