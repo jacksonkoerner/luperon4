@@ -2486,6 +2486,83 @@
             }
         }
 
+        /* Mobile Tab Buttons - Stacked Design */
+        @media (max-width: 768px) {
+            .tab-intro {
+                padding: 15px;
+                display: none;
+            }
+            .services-tabs {
+                padding: 15px;
+                top: 55px;
+            }
+            .tabs-container {
+                flex-direction: column;
+                overflow-x: visible;
+                gap: 8px;
+            }
+            .tab-button {
+                width: 100%;
+                padding: 14px 20px;
+                border-radius: 10px;
+                justify-content: flex-start;
+                gap: 15px;
+            }
+            .tab-button i {
+                font-size: 20px;
+                width: 24px;
+                text-align: center;
+            }
+            .tab-button-label {
+                flex-direction: row;
+                align-items: center;
+                gap: 0;
+            }
+            .tab-button-title {
+                font-size: 12px;
+            }
+            .hurricane-season-banner {
+                padding: 20px 15px;
+            }
+            .hurricane-season-banner h3 {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+            .hurricane-season-banner p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-tabs {
+                padding: 12px;
+                top: 50px;
+            }
+            .tabs-container {
+                gap: 6px;
+            }
+            .tab-button {
+                padding: 12px 16px;
+                border-radius: 8px;
+            }
+            .tab-button i {
+                font-size: 18px;
+            }
+            .tab-button-title {
+                font-size: 11px;
+            }
+            .hurricane-season-banner {
+                padding: 18px 12px;
+            }
+            .hurricane-season-banner h3 {
+                font-size: 11px;
+                margin-bottom: 8px;
+            }
+            .hurricane-season-banner p {
+                font-size: 12px;
+            }
+        }
+
         /* ===== HURRICANE SECTION STYLES ===== */
         .hurricane-season-banner {
             background: linear-gradient(135deg, var(--warning-orange) 0%, #d35400 100%);
