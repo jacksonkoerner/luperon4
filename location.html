@@ -1036,6 +1036,178 @@
         .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--highlight); transition: width 0.3s ease; }
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+        /* Regional Access Section */
+        .regional-access {
+            background: var(--secondary-dark);
+            padding: 100px 50px;
+        }
+
+        .regional-access-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .regional-access-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .route-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .route-card {
+            background: var(--primary-dark);
+            padding: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .route-card:hover {
+            border-color: var(--highlight);
+            transform: translateX(5px);
+        }
+
+        .route-card.active {
+            border-color: var(--highlight);
+            background: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(61, 139, 201, 0.2);
+        }
+
+        .route-card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--highlight);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .route-card.active .route-card-icon {
+            background: var(--highlight);
+            color: var(--text-light);
+        }
+
+        .route-card-info {
+            flex: 1;
+        }
+
+        .route-card-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .route-card-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .route-card-details span {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .route-card-details span i {
+            color: var(--highlight);
+            font-size: 12px;
+        }
+
+        .regional-map-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .regional-map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            display: block;
+        }
+
+        @media (max-width: 1200px) {
+            .regional-access-content {
+                grid-template-columns: 1fr;
+            }
+            .route-cards {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .route-card {
+                flex: 1;
+                min-width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .regional-access {
+                padding: 60px 25px;
+            }
+            .route-cards {
+                flex-direction: column;
+            }
+            .route-card {
+                min-width: auto;
+            }
+            .regional-map-container iframe {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .regional-access {
+                padding: 50px 20px;
+            }
+            .route-card {
+                padding: 20px;
+                gap: 15px;
+            }
+            .route-card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            .route-card-info h4 {
+                font-size: 14px;
+            }
+            .route-card-details {
+                gap: 12px;
+            }
+            .route-card-details span {
+                font-size: 12px;
+            }
+            .regional-map-container iframe {
+                height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1236,7 +1408,7 @@
         <div class="protection-stats-grid">
             <div class="protection-stat-item">
                 <div class="protection-stat-icon"><i class="fas fa-calendar-check"></i></div>
-                <div class="protection-stat-number">30+</div>
+                <div class="protection-stat-number">20+</div>
                 <div class="protection-stat-label">Years Trusted</div>
             </div>
             <div class="protection-stat-item">
@@ -1253,6 +1425,65 @@
                 <div class="protection-stat-icon"><i class="fas fa-eye"></i></div>
                 <div class="protection-stat-number">24/7</div>
                 <div class="protection-stat-label">Monitoring</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Access Section -->
+    <section class="regional-access">
+        <div class="regional-access-header">
+            <p class="section-label">Explore the Region</p>
+            <h2 class="section-title">REGIONAL ACCESS</h2>
+            <div class="section-divider" style="margin: 0 auto 20px;"></div>
+            <p style="color: var(--text-muted); font-size: 16px; line-height: 1.8;">Easy connections to airports, cities, and attractions</p>
+        </div>
+        <div class="regional-access-content">
+            <div class="route-cards">
+                <div class="route-card active" data-route="sti" onclick="selectRoute(this, 'sti')">
+                    <div class="route-card-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div class="route-card-info">
+                        <h4>STI Airport</h4>
+                        <div class="route-card-details">
+                            <span><i class="fas fa-clock"></i> 1 hr drive</span>
+                            <span><i class="fas fa-road"></i> 65 km</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card" data-route="santiago" onclick="selectRoute(this, 'santiago')">
+                    <div class="route-card-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div class="route-card-info">
+                        <h4>Santiago</h4>
+                        <div class="route-card-details">
+                            <span><i class="fas fa-clock"></i> 1.5 hr drive</span>
+                            <span><i class="fas fa-road"></i> 85 km</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-card" data-route="cabarete" onclick="selectRoute(this, 'cabarete')">
+                    <div class="route-card-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <div class="route-card-info">
+                        <h4>Cabarete</h4>
+                        <div class="route-card-details">
+                            <span><i class="fas fa-clock"></i> 1.5 hr drive</span>
+                            <span><i class="fas fa-road"></i> 80 km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="regional-map-container">
+                <iframe
+                    id="regionalMap"
+                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d242088.12345678901!2d-70.9!3d19.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8eb1a7c0b8e7c8d5%3A0x1234567890abcdef!2sLuper%C3%B3n%2C%20Dominican%20Republic!3m2!1d19.8941!2d-70.9546!4m5!1s0x8eb1c4e8f8f8f8f8%3A0xabcdef1234567890!2sCibao%20International%20Airport%20(STI)!3m2!1d19.4061!2d-70.6047!5e0!3m2!1sen!2sus!4v1704067200001"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
@@ -1316,6 +1547,25 @@
     <script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Regional Access route selection
+        const routeMaps = {
+            sti: 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d242088.12345678901!2d-70.9!3d19.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8eb1a7c0b8e7c8d5%3A0x1234567890abcdef!2sLuper%C3%B3n%2C%20Dominican%20Republic!3m2!1d19.8941!2d-70.9546!4m5!1s0x8eb1c4e8f8f8f8f8%3A0xabcdef1234567890!2sCibao%20International%20Airport%20(STI)!3m2!1d19.4061!2d-70.6047!5e0!3m2!1sen!2sus!4v1704067200001',
+            santiago: 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d242088.12345678901!2d-70.75!3d19.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8eb1a7c0b8e7c8d5%3A0x1234567890abcdef!2sLuper%C3%B3n%2C%20Dominican%20Republic!3m2!1d19.8941!2d-70.9546!4m5!1s0x8eb1d5e8e8e8e8e8%3A0xfedcba0987654321!2sSantiago%20de%20los%20Caballeros!3m2!1d19.4517!2d-70.6970!5e0!3m2!1sen!2sus!4v1704067200002',
+            cabarete: 'https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d242088.12345678901!2d-70.5!3d19.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8eb1a7c0b8e7c8d5%3A0x1234567890abcdef!2sLuper%C3%B3n%2C%20Dominican%20Republic!3m2!1d19.8941!2d-70.9546!4m5!1s0x8eb1e6f6f6f6f6f6%3A0x123456789abcdef0!2sCabarete%2C%20Dominican%20Republic!3m2!1d19.7580!2d-70.4130!5e0!3m2!1sen!2sus!4v1704067200003'
+        };
+
+        function selectRoute(card, route) {
+            // Remove active class from all cards
+            document.querySelectorAll('.route-card').forEach(c => c.classList.remove('active'));
+            // Add active class to clicked card
+            card.classList.add('active');
+            // Update map iframe src
+            const mapFrame = document.getElementById('regionalMap');
+            if (mapFrame && routeMaps[route]) {
+                mapFrame.src = routeMaps[route];
+            }
         }
 
         const animateOnScroll = () => {
