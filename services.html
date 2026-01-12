@@ -5289,7 +5289,11 @@
 
         function scrollToServices() {
             // Scroll to the top where the service buttons are
-            servicesNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const nav = document.getElementById('services-nav');
+            if (nav) {
+                const navTop = nav.offsetTop;
+                window.scrollTo({ top: navTop, behavior: 'smooth' });
+            }
         }
 
         // Show/hide button based on whether tabs are visible
