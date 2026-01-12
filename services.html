@@ -2423,7 +2423,7 @@
         /* ===== TAB NAVIGATION STYLES ===== */
         .tab-intro {
             background: var(--primary-dark);
-            padding: 30px 50px 20px;
+            padding: 40px 50px 50px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -2446,7 +2446,7 @@
 
         .services-tabs {
             background: linear-gradient(180deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
-            padding: 20px 50px;
+            padding: 35px 50px 30px;
             position: sticky;
             top: 70px;
             z-index: 100;
@@ -2458,7 +2458,7 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .tab-button {
@@ -3764,6 +3764,60 @@
             }
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--highlight) 0%, #2d6da3 100%);
+            border: none;
+            border-radius: 50%;
+            color: var(--text-light);
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(61, 139, 201, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(61, 139, 201, 0.5);
+            background: linear-gradient(135deg, #4a9fd8 0%, var(--highlight) 100%);
+        }
+
+        .back-to-top i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-top:hover i {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+        }
+
     </style>
 
 </head>
@@ -3860,7 +3914,7 @@
     </section>
 
     <!-- Tab Navigation -->
-    <div class="services-tabs">
+    <div id="services-nav" class="services-tabs">
         <div class="tabs-container">
             <button class="tab-button hurricane-tab active" onclick="switchTab('hurricane')">
                 <i class="fas fa-shield-alt"></i>
@@ -4815,6 +4869,11 @@
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToServices()" title="Back to services navigation">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer -->
 
     <footer>
@@ -5227,6 +5286,25 @@
             addAnimationClasses();
             animateOnScroll();
             checkHashAndSwitchTab();
+        });
+
+        // ===== BACK TO TOP BUTTON =====
+        const backToTopBtn = document.getElementById('backToTop');
+        const servicesNav = document.getElementById('services-nav');
+
+        function scrollToServices() {
+            servicesNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            const servicesNavRect = servicesNav.getBoundingClientRect();
+            // Show button when services nav is scrolled out of view (above the viewport)
+            if (servicesNavRect.bottom < 0) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
         });
 
     </script>
